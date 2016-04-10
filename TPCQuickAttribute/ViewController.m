@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "UIView+TPCQuickAttribute.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    UIView *v1 = [UIView new];
+    v1.tpc_quickAttribute
+    .size(CGSizeMake(100, 100))
+    .referToView(self.view)
+    .referOrigin(CGPointMake(10, 100))
+    .addToView(self.view)
+    .backgroundColor([UIColor redColor]);
 }
 
 - (void)didReceiveMemoryWarning {

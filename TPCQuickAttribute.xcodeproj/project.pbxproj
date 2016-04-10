@@ -13,6 +13,11 @@
 		D608DAA61CBA69BC00298C5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D608DAA41CBA69BC00298C5D /* Main.storyboard */; };
 		D608DAA81CBA69BC00298C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D608DAA71CBA69BC00298C5D /* Assets.xcassets */; };
 		D608DAAB1CBA69BC00298C5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D608DAA91CBA69BC00298C5D /* LaunchScreen.storyboard */; };
+		D608DABE1CBA69FF00298C5D /* NSObject+TPCQuickAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D608DAB41CBA69FF00298C5D /* NSObject+TPCQuickAttribute.m */; };
+		D608DABF1CBA69FF00298C5D /* TPCQuickAttribute+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = D608DAB61CBA69FF00298C5D /* TPCQuickAttribute+Appearance.m */; };
+		D608DAC01CBA69FF00298C5D /* TPCQuickAttribute+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D608DAB81CBA69FF00298C5D /* TPCQuickAttribute+Frame.m */; };
+		D608DAC11CBA69FF00298C5D /* TPCQuickAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D608DABA1CBA69FF00298C5D /* TPCQuickAttribute.m */; };
+		D608DAC21CBA69FF00298C5D /* UIView+TPCQuickAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = D608DABD1CBA69FF00298C5D /* UIView+TPCQuickAttribute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,17 @@
 		D608DAA71CBA69BC00298C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D608DAAA1CBA69BC00298C5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D608DAAC1CBA69BC00298C5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D608DAB31CBA69FF00298C5D /* NSObject+TPCQuickAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TPCQuickAttribute.h"; sourceTree = "<group>"; };
+		D608DAB41CBA69FF00298C5D /* NSObject+TPCQuickAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TPCQuickAttribute.m"; sourceTree = "<group>"; };
+		D608DAB51CBA69FF00298C5D /* TPCQuickAttribute+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCQuickAttribute+Appearance.h"; sourceTree = "<group>"; };
+		D608DAB61CBA69FF00298C5D /* TPCQuickAttribute+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCQuickAttribute+Appearance.m"; sourceTree = "<group>"; };
+		D608DAB71CBA69FF00298C5D /* TPCQuickAttribute+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCQuickAttribute+Frame.h"; sourceTree = "<group>"; };
+		D608DAB81CBA69FF00298C5D /* TPCQuickAttribute+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TPCQuickAttribute+Frame.m"; sourceTree = "<group>"; };
+		D608DAB91CBA69FF00298C5D /* TPCQuickAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCQuickAttribute.h; sourceTree = "<group>"; };
+		D608DABA1CBA69FF00298C5D /* TPCQuickAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPCQuickAttribute.m; sourceTree = "<group>"; };
+		D608DABB1CBA69FF00298C5D /* TPCQuickProtcol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCQuickProtcol.h; sourceTree = "<group>"; };
+		D608DABC1CBA69FF00298C5D /* UIView+TPCQuickAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TPCQuickAttribute.h"; sourceTree = "<group>"; };
+		D608DABD1CBA69FF00298C5D /* UIView+TPCQuickAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TPCQuickAttribute.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +74,7 @@
 		D608DA9A1CBA69BC00298C5D /* TPCQuickAttribute */ = {
 			isa = PBXGroup;
 			children = (
+				D608DAB21CBA69FF00298C5D /* Source */,
 				D608DA9E1CBA69BC00298C5D /* AppDelegate.h */,
 				D608DA9F1CBA69BC00298C5D /* AppDelegate.m */,
 				D608DAA11CBA69BC00298C5D /* ViewController.h */,
@@ -77,6 +94,24 @@
 				D608DA9C1CBA69BC00298C5D /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D608DAB21CBA69FF00298C5D /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				D608DAB31CBA69FF00298C5D /* NSObject+TPCQuickAttribute.h */,
+				D608DAB41CBA69FF00298C5D /* NSObject+TPCQuickAttribute.m */,
+				D608DAB51CBA69FF00298C5D /* TPCQuickAttribute+Appearance.h */,
+				D608DAB61CBA69FF00298C5D /* TPCQuickAttribute+Appearance.m */,
+				D608DAB71CBA69FF00298C5D /* TPCQuickAttribute+Frame.h */,
+				D608DAB81CBA69FF00298C5D /* TPCQuickAttribute+Frame.m */,
+				D608DAB91CBA69FF00298C5D /* TPCQuickAttribute.h */,
+				D608DABA1CBA69FF00298C5D /* TPCQuickAttribute.m */,
+				D608DABB1CBA69FF00298C5D /* TPCQuickProtcol.h */,
+				D608DABC1CBA69FF00298C5D /* UIView+TPCQuickAttribute.h */,
+				D608DABD1CBA69FF00298C5D /* UIView+TPCQuickAttribute.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,8 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D608DAC11CBA69FF00298C5D /* TPCQuickAttribute.m in Sources */,
+				D608DAC21CBA69FF00298C5D /* UIView+TPCQuickAttribute.m in Sources */,
 				D608DAA31CBA69BC00298C5D /* ViewController.m in Sources */,
 				D608DAA01CBA69BC00298C5D /* AppDelegate.m in Sources */,
+				D608DABF1CBA69FF00298C5D /* TPCQuickAttribute+Appearance.m in Sources */,
+				D608DABE1CBA69FF00298C5D /* NSObject+TPCQuickAttribute.m in Sources */,
+				D608DAC01CBA69FF00298C5D /* TPCQuickAttribute+Frame.m in Sources */,
 				D608DA9D1CBA69BC00298C5D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
