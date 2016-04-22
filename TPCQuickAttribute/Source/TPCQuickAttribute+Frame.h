@@ -8,17 +8,28 @@
 
 #import "TPCQuickAttribute.h"
 
+#define pzero CGPointZero
+#define szero CGSizeZero
+#define fzero 0
+
 @interface TPCQuickAttribute (Frame)
 
-- (TPCQuickAttribute *(^)(CGFloat))referLeft;
-- (TPCQuickAttribute *(^)(CGFloat))referRight;
-- (TPCQuickAttribute *(^)(CGFloat))referTop;
-- (TPCQuickAttribute *(^)(CGFloat))referBottom;
-- (TPCQuickAttribute *(^)(CGPoint))referOrigin;
-- (TPCQuickAttribute *(^)(CGSize))referSize;
-- (TPCQuickAttribute *(^)(CGPoint))referCenter;
-- (TPCQuickAttribute *(^)(CGFloat))referCenterX;
-- (TPCQuickAttribute *(^)(CGFloat))referCenterY;
+- (TPCQuickAttribute *(^)(CGFloat))alignLeftToLeft;
+- (TPCQuickAttribute *(^)(CGFloat))alignLeftToRight;
+- (TPCQuickAttribute *(^)(CGFloat))alignRightToLeft;
+- (TPCQuickAttribute *(^)(CGFloat))alignRightToRight;
+- (TPCQuickAttribute *(^)(CGFloat))alignWidthToLeft;
+- (TPCQuickAttribute *(^)(CGFloat))alignWidthToRight;
+- (TPCQuickAttribute *(^)(CGFloat))alignTopToTop;
+- (TPCQuickAttribute *(^)(CGFloat))alignTopToBottom;
+- (TPCQuickAttribute *(^)(CGFloat))alignBottomToTop;
+- (TPCQuickAttribute *(^)(CGFloat))alignBottomToBottom;
+
+- (TPCQuickAttribute *(^)(CGPoint))alignOrigin;
+- (TPCQuickAttribute *(^)(CGSize))alignSize;
+- (TPCQuickAttribute *(^)(CGPoint))alignCenter;
+- (TPCQuickAttribute *(^)(CGFloat))alignCenterX;
+- (TPCQuickAttribute *(^)(CGFloat))alignCenterY;
 
 - (TPCQuickAttribute *(^)(CGFloat))x;
 - (TPCQuickAttribute *(^)(CGFloat))y;

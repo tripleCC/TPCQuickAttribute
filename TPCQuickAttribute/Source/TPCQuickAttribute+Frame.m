@@ -10,34 +10,69 @@
 
 @implementation TPCQuickAttribute (Frame)
 #pragma mark relative coordinate
-
-- (TPCQuickAttribute *(^)(CGFloat))referLeft {
-    return ^TPCQuickAttribute *(CGFloat left) {
-        return self.x(self.referView.frame.origin.x + left);
+- (TPCQuickAttribute *(^)(CGFloat))alignLeftToLeft {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.x(self.referView.frame.origin.x + offset);
     };
 }
 
-- (TPCQuickAttribute *(^)(CGFloat))referRight {
-    return ^TPCQuickAttribute *(CGFloat right) {
+- (TPCQuickAttribute *(^)(CGFloat))alignLeftToRight {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.alignLeftToLeft(self.referView.frame.size.width + offset);
+    };
+}
+
+- (TPCQuickAttribute *(^)(CGFloat))alignRightToLeft {
+    return ^TPCQuickAttribute *(CGFloat offset) {
         if (self.view.frame.size.width == 0) TPCLayoutLog(@"Warning: setting refer right before setting width.");
-        return self.referLeft(self.referView.frame.size.width - self.view.frame.size.width + right);
+        return self.x(self.referView.frame.origin.x - self.view.frame.size.width - offset);
     };
 }
 
-- (TPCQuickAttribute *(^)(CGFloat))referTop {
-    return ^TPCQuickAttribute *(CGFloat top) {
-        return self.y(self.referView.frame.origin.y + top);
+- (TPCQuickAttribute *(^)(CGFloat))alignRightToRight {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.alignRightToLeft(offset - self.referView.frame.size.width);
     };
 }
 
-- (TPCQuickAttribute *(^)(CGFloat))referBottom {
-    return ^TPCQuickAttribute *(CGFloat bottom) {
+- (TPCQuickAttribute *(^)(CGFloat))alignWidthToLeft {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.width(self.referView.frame.origin.x - self.view.frame.origin.x - offset);
+    };
+}
+
+- (TPCQuickAttribute *(^)(CGFloat))alignWidthToRight {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.alignWidthToLeft(offset - self.referView.frame.size.width);
+    };
+}
+
+- (TPCQuickAttribute *(^)(CGFloat))alignTopToTop {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.y(self.referView.frame.origin.y + offset);
+    };
+}
+
+- (TPCQuickAttribute *(^)(CGFloat))alignTopToBottom {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.alignTopToTop(self.referView.frame.size.height + offset);
+    };
+}
+
+- (TPCQuickAttribute *(^)(CGFloat))alignBottomToTop {
+    return ^TPCQuickAttribute *(CGFloat offset) {
         if (self.view.frame.size.height == 0) TPCLayoutLog(@"Warning: setting refer bottom before setting height.");
-        return self.referTop(self.referView.frame.size.height - self.view.frame.size.height + bottom);
+        return self.y(self.referView.frame.origin.y - self.view.frame.size.height - offset);
     };
 }
 
-- (TPCQuickAttribute *(^)(CGPoint))referOrigin {
+- (TPCQuickAttribute *(^)(CGFloat))alignBottomToBottom {
+    return ^TPCQuickAttribute *(CGFloat offset) {
+        return self.alignBottomToTop(offset - self.referView.frame.size.height);
+    };
+}
+
+- (TPCQuickAttribute *(^)(CGPoint))alignOrigin {
     return ^TPCQuickAttribute *(CGPoint origin) {
         return self.origin((CGPoint){
             .x = self.referView.frame.origin.x + origin.x,
@@ -46,7 +81,7 @@
     };
 }
 
-- (TPCQuickAttribute *(^)(CGSize))referSize {
+- (TPCQuickAttribute *(^)(CGSize))alignSize {
     return ^TPCQuickAttribute *(CGSize size) {
         return self.size((CGSize){
             .width = self.referView.frame.size.width + size.width,
@@ -55,7 +90,7 @@
     };
 }
 
-- (TPCQuickAttribute *(^)(CGPoint))referCenter {
+- (TPCQuickAttribute *(^)(CGPoint))alignCenter {
     return ^TPCQuickAttribute *(CGPoint center) {
         return self.center((CGPoint){
             .x = self.referView.center.x + center.x,
@@ -64,13 +99,13 @@
     };
 }
 
-- (TPCQuickAttribute *(^)(CGFloat))referCenterX {
+- (TPCQuickAttribute *(^)(CGFloat))alignCenterX {
     return ^TPCQuickAttribute *(CGFloat centerX) {
         return self.centerX(self.referView.center.x + centerX);
     };
 }
 
-- (TPCQuickAttribute *(^)(CGFloat))referCenterY {
+- (TPCQuickAttribute *(^)(CGFloat))alignCenterY {
     return ^TPCQuickAttribute *(CGFloat centerY) {
         return self.centerX(self.referView.center.y + centerY);
     };
