@@ -23,8 +23,9 @@
 - (instancetype)initWithView:(UIView *)view;
 @property (weak, nonatomic, readonly) UIView *view;
 @property (weak, nonatomic) UIView *referView;
+@property (assign, nonatomic, readonly) BOOL referViewIsSuperview;
 
 - (TPCQuickAttribute *(^)(UIView * view))referToView;
 - (TPCQuickAttribute *(^)(UIView *))addToView;
-- (TPCQuickAttribute *(^)())end;
+- (void)end;
 @end

@@ -10,9 +10,25 @@
 
 @implementation TPCQuickAttribute (Frame)
 #pragma mark relative coordinate
+- (CGFloat)referViewX {
+    return self.referViewIsSuperview ? 0 : self.referView.frame.origin.x;
+}
+
+- (CGFloat)referViewY {
+    return self.referViewIsSuperview ? 0 : self.referView.frame.origin.y;
+}
+
+- (CGFloat)referViewCenterX {
+    return self.referViewIsSuperview ? self.referView.frame.size.width * 0.5 : self.referView.center.x;
+}
+
+- (CGFloat)referViewCenterY {
+    return self.referViewIsSuperview ? self.referView.frame.size.height * 0.5 : self.referView.center.y;
+}
+
 - (TPCQuickAttribute *(^)(CGFloat))alignLeftToLeft {
     return ^TPCQuickAttribute *(CGFloat offset) {
-        return self.x(self.referView.frame.origin.x + offset);
+        return self.x(self.referViewX + offset);
     };
 }
 
@@ -25,7 +41,7 @@
 - (TPCQuickAttribute *(^)(CGFloat))alignRightToLeft {
     return ^TPCQuickAttribute *(CGFloat offset) {
         if (self.view.frame.size.width == 0) TPCLayoutLog(@"Warning: setting refer right before setting width.");
-        return self.x(self.referView.frame.origin.x - self.view.frame.size.width - offset);
+        return self.x(self.referViewX - self.view.frame.size.width - offset);
     };
 }
 
@@ -37,7 +53,7 @@
 
 - (TPCQuickAttribute *(^)(CGFloat))alignWidthToLeft {
     return ^TPCQuickAttribute *(CGFloat offset) {
-        return self.width(self.referView.frame.origin.x - self.view.frame.origin.x - offset);
+        return self.width(self.referViewX - self.view.frame.origin.x - offset);
     };
 }
 
@@ -49,7 +65,7 @@
 
 - (TPCQuickAttribute *(^)(CGFloat))alignTopToTop {
     return ^TPCQuickAttribute *(CGFloat offset) {
-        return self.y(self.referView.frame.origin.y + offset);
+        return self.y(self.referViewY + offset);
     };
 }
 
@@ -62,7 +78,7 @@
 - (TPCQuickAttribute *(^)(CGFloat))alignBottomToTop {
     return ^TPCQuickAttribute *(CGFloat offset) {
         if (self.view.frame.size.height == 0) TPCLayoutLog(@"Warning: setting refer bottom before setting height.");
-        return self.y(self.referView.frame.origin.y - self.view.frame.size.height - offset);
+        return self.y(self.referViewY - self.view.frame.size.height - offset);
     };
 }
 
@@ -75,8 +91,8 @@
 - (TPCQuickAttribute *(^)(CGPoint))alignOrigin {
     return ^TPCQuickAttribute *(CGPoint origin) {
         return self.origin((CGPoint){
-            .x = self.referView.frame.origin.x + origin.x,
-            .y = self.referView.frame.origin.y + origin.y
+            .x = self.referViewX + origin.x,
+            .y = self.referViewY + origin.y
         });
     };
 }
@@ -93,21 +109,21 @@
 - (TPCQuickAttribute *(^)(CGPoint))alignCenter {
     return ^TPCQuickAttribute *(CGPoint center) {
         return self.center((CGPoint){
-            .x = self.referView.center.x + center.x,
-            .y = self.referView.center.y + center.y
+            .x = self.referViewCenterX + center.x,
+            .y = self.referViewCenterY + center.y
         });
     };
 }
 
 - (TPCQuickAttribute *(^)(CGFloat))alignCenterX {
     return ^TPCQuickAttribute *(CGFloat centerX) {
-        return self.centerX(self.referView.center.x + centerX);
+        return self.centerX(self.referViewCenterX + centerX);
     };
 }
 
 - (TPCQuickAttribute *(^)(CGFloat))alignCenterY {
     return ^TPCQuickAttribute *(CGFloat centerY) {
-        return self.centerX(self.referView.center.y + centerY);
+        return self.centerY(self.referViewCenterY + centerY);
     };
 }
 
@@ -162,8 +178,8 @@
 
 - (TPCQuickAttribute *(^)(CGPoint))center {
     return ^TPCQuickAttribute *(CGPoint center) {
-        return [self handerCenter:^(CGPoint *center) {
-            *center = self.view.center;
+        return [self handerCenter:^(CGPoint *handerCenter) {
+            *handerCenter = center;
         }];
     };
 }
@@ -188,6 +204,7 @@
 - (TPCQuickAttribute *)handleFrame:(void(^)(CGRect *))action {
     CGRect frame = self.view.frame;
     action(&frame);
+    TPCLayoutLog(@"%@", NSStringFromCGRect(frame));
     self.view.frame = frame;
     return self;
 }

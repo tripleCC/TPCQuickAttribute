@@ -43,4 +43,9 @@
 
 - (TPCQuickAttribute *)handleFrame:(void(^)(CGRect *))action;
 - (TPCQuickAttribute *)handerCenter:(void(^)(CGPoint *))action;
+
+- (CGFloat)referViewX;
+- (CGFloat)referViewY;
+- (CGFloat)referViewCenterX;
+- (CGFloat)referViewCenterY;
 @end

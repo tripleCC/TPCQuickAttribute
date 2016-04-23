@@ -44,9 +44,10 @@
     };
 }
 
-- (TPCQuickAttribute *(^)())end {
-    return ^TPCQuickAttribute *() {
-        return self;
-    };
+- (void)end {
+}
+
+- (BOOL)referViewIsSuperview {
+    return _referView == _view.superview;
 }
 @end
